@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @users_empresa.user %>
+</p>
+
+<p>
+  <strong>Empresa:</strong>
+  <%= @users_empresa.empresa %>
+</p>
+
+<p>
+  <strong>Dtcriacao:</strong>
+  <%= @users_empresa.dtCriacao %>
+</p>
+
+<%= link_to 'Edit', edit_users_empresa_path(@users_empresa) %> |
+<%= link_to 'Back', users_empresas_path %>

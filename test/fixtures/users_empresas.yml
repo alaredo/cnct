@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  empresa_id: 
+  dtCriacao: 2017-06-01 13:29:28
+
+two:
+  user_id: 
+  empresa_id: 
+  dtCriacao: 2017-06-01 13:29:28

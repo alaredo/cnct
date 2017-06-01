@@ -1,0 +1,38 @@
+<h1>Empresa</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Login:</strong>
+  <%= @empresa.login %>
+</p>
+
+<p>
+  <strong>Passwd:</strong>
+  <%= @empresa.passwd %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @empresa.name %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @empresa.url %>
+</p>
+<div>
+	<h3>Usuários</h3>
+	<% @users_empresas.each do |users_empresa| %>
+	      <table>
+          <tr>
+  	        <td><%= users_empresa.user.email %></td>
+  	        <td><%= users_empresa.dtCriacao %></td>
+  	      </tr>
+        </table>
+	<% end %>
+</div>
+</br>
+
+<%= link_to 'Edit', edit_empresa_path(@empresa) %> |
+<%= link_to 'Back', empresas_path %>

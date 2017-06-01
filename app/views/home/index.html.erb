@@ -1,0 +1,13 @@
+<% if @multi %>
+	<%= form_for(@empresa) do |f| %>
+		<div class="field">
+		    <%= f.collection_select :id, @usuarioEmpresas.all, :id, :name, {prompt: "Selecione uma empresa"} %>
+		</div>
+
+		<div class="actions">
+	    	<%= f.submit %>
+	  	</div>
+	<% end %>
+<% end %>
+
+

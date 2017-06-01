@@ -1,0 +1,33 @@
+<h1>Market Places</h1>
+
+<style>
+    table {
+        text-align: left;
+    }
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <th class="cab">Nome</th>
+      <th class="cab">Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @market_places.each do |market_place| %>
+      <tr>
+        <td><div style="width: 300px;"><%= market_place.nome %></div></td>
+        <td><div style="width: 300px;"><%= market_place.url %></div></td>
+        <td><%= link_to 'Show', market_place %></td>
+        <td><%= link_to 'Edit', edit_market_place_path(market_place) %></td>
+        <td><%= link_to 'Destroy', market_place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Market place', new_market_place_path %>

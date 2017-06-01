@@ -1,0 +1,62 @@
+
+<%= form_for(@produto) do |f| %>
+  <% if @produto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
+
+      <ul>
+      <% @produto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :empresa_id %><br>
+    <%= f.collection_select :empresa_id, Empresa.all, :id, :name, {prompt: "Selecione uma empresa"} %>
+    
+  </div>
+  
+   
+  <div class="field" >
+    <%= f.label :descricao %><br>
+    <%= f.cktext_area :descricao, :ckeditor => {:toolbar => 'mini'} %>
+    
+  </div>
+  <div class="field">
+    <%= f.label :valor %><br>
+    <%= f.text_field :valor %>
+  </div>
+  <div class="field">
+    <%= f.label :saldo %><br>
+    <%= f.number_field :saldo %>
+  </div>
+  <div class="field">
+    <%= f.label :imagem1 %><br>
+    <%= f.text_field :imagem1, size: 100 %>
+  </div>
+  <div class="field">
+    <%= f.label :imagem2 %><br>
+    <%= f.text_field :imagem2, size: 100 %>
+  </div>
+  <div class="field">
+    <%= f.label :imagem3 %><br>
+    <%= f.text_field :imagem3, size: 100 %>
+  </div>
+  <div class="field">
+    <%= f.label :imagem4 %><br>
+    <%= f.text_field :imagem4, size: 100 %>
+  </div>
+  <div class="field">
+    <%= f.label :video1 %><br>
+    <%= f.text_field :video1, size: 100 %>
+  </div>
+  <div class="field">
+    <%= f.label :video2 %><br>
+    <%= f.text_field :video2, size: 100 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

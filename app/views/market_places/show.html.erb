@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @market_place.nome %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @market_place.url %>
+</p>
+
+<%= link_to 'Edit', edit_market_place_path(@market_place) %> |
+<%= link_to 'Back', market_places_path %>

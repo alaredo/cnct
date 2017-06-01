@@ -1,0 +1,40 @@
+<h1>Empresas</h1>
+
+
+<style>
+    table {
+        text-align: left;
+    }
+</style>
+
+
+<table>
+  <thead>
+    <tr>
+      <th class="cab">Login</th>
+      <th class="cab">Passwd</th>
+      <th class="cab">Name</th>
+      <th class="cab">Url</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @empresas.each do |empresa| %>
+      <tr>
+        <td><div style="width: 100px;"><%= empresa.login %></div></td>
+        <td><div style="width: 100px;"><%= empresa.passwd %></div></td>
+        <td><div style="width: 300px;"><%= empresa.name %></div></td>
+        <td><div style="width: 200px;"><%= link_to empresa.url, empresa.url %></div></td>
+        <td><%= link_to 'Show', empresa %></td>
+        <td><%= link_to 'Edit', edit_empresa_path(empresa) %></td>
+        <td><%= link_to 'Destroy', empresa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  
+</table>
+
+<br>
+
+<%= link_to 'Nova Empresa', new_empresa_path %>

@@ -1,0 +1,29 @@
+<h1>Listing users_empresas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Empresa</th>
+      <th>Dtcriacao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users_empresas.each do |users_empresa| %>
+      <tr>
+        <td><%= users_empresa.user.email %></td>
+        <td><%= users_empresa.empresa.name %></td>
+        <td><%= users_empresa.dtCriacao %></td>
+        <td><%= link_to 'Show', users_empresa %></td>
+        <td><%= link_to 'Edit', edit_users_empresa_path(users_empresa) %></td>
+        <td><%= link_to 'Destroy', users_empresa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Users empresa', new_users_empresa_path %>

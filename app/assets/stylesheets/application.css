@@ -1,0 +1,97 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+ @import "froala_editor.min.css";
+ @import "froala_style.min.css";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+ 
+
+body {
+   font-family: Helvetica, Geneva, Arial, sans-serif;
+   font-size: small;
+   font-color: #000;
+   background-color: #fff;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+a:link, a:active, a:visited {
+   color: #000;
+}
+
+input { 
+   margin-bottom: 5px;
+}
+
+p { 
+   line-height: 150%;
+}
+
+div#container {
+   width: 760px;
+   margin: 0 auto;
+}
+
+div#header {
+   text-align: center;
+   padding-bottom: 15px;
+}
+
+div#content {
+   float: left;
+   width: 90%;
+   padding: 10px;
+}
+
+div#content h3 {
+   margin-top: 15px;
+}
+
+div#topBar {
+   text-align: left;
+   padding: 10px;
+   background-color: green;
+   color: #fff;
+   margin-bottom: 5px;
+}
+
+div#menu {
+   float: left;
+   background-color: green;
+   width: 10%;
+   height: 100vh;
+   padding: 10px;
+   color: #fff;
+}
+
+div#container {
+   float: right;
+   margin: 0;
+   background-color: white;
+   width: 85%;
+   height: 100vh;
+   padding: 10px;
+   color: #000;
+}
+
+th {
+   background-color: green;
+   color: #fff;
+}

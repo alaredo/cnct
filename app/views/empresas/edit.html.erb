@@ -1,0 +1,22 @@
+<h1>Empresa</h1>
+
+<%= render 'form' %>
+
+<div>
+    <h3>Usuários</h3>
+    <% @users_empresas.each do |users_empresa| %>
+          <table>
+            <tr>
+              <td><%= users_empresa.user.email %></td>
+              <td><%= users_empresa.dtCriacao %></td>
+            </tr>
+          </table>
+    <% end %>
+    </br>
+    <%= link_to 'Adicionar Usuario', new_users_empresa_path %>
+  </div>
+
+   </br></br>
+
+<%= link_to 'Show', @empresa %> |
+<%= link_to 'Back', empresas_path %>

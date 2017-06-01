@@ -1,0 +1,31 @@
+<%= form_for(@users_empresa) do |f| %>
+  <% if @users_empresa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@users_empresa.errors.count, "error") %> prohibited this users_empresa from being saved:</h2>
+
+      <ul>
+      <% @users_empresa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :empresa_id %><br>
+    <%= f.text_field :empresa_id ,  :value => @emp_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.collection_select :user_id, User.all, :id, :email, {prompt: "Selecione um usuario"} %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :dtCriacao %><br>
+    <%= f.datetime_select :dtCriacao %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
