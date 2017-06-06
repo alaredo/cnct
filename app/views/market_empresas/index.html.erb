@@ -1,0 +1,33 @@
+<h1>Market Places</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th class="cab">Marketplace</th>
+      <th class="cab">Url</th>
+      <th class="cab">User</th>
+      <th class="cab">Intervaloestoque</th>
+      <th class="cab">Intervalopedidos</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @market_empresas.each do |market_empresa| %>
+      <tr>
+        <td><div style="width: 30%;"><%= market_empresa.marketPlace.nome %></div></td>
+        <td><div style="width: 30%;"><%= market_empresa.url %></div></td>
+        <td><div style="width: 20%;"><%= market_empresa.user %></div></td>
+        <td><div style="width: 10%;"><%= market_empresa.intervaloEstoque %></div></td>
+        <td><div style="width: 10%;"><%= market_empresa.intervaloPedidos %></div></td>
+        <td><%= link_to 'Show', market_empresa %></td>
+        <td><%= link_to 'Edit', edit_market_empresa_path(market_empresa) %></td>
+        <td><%= link_to 'Destroy', market_empresa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Market empresa', new_market_empresa_path %>

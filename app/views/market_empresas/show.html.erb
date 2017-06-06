@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Marketplace:</strong>
+  <%= @market_empresa.marketPlace %>
+</p>
+
+<p>
+  <strong>Empresa:</strong>
+  <%= @market_empresa.empresa %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @market_empresa.url %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @market_empresa.user %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @market_empresa.password %>
+</p>
+
+<p>
+  <strong>Token:</strong>
+  <%= @market_empresa.token %>
+</p>
+
+<p>
+  <strong>Intervaloestoque:</strong>
+  <%= @market_empresa.intervaloEstoque %>
+</p>
+
+<p>
+  <strong>Intervalopedidos:</strong>
+  <%= @market_empresa.intervaloPedidos %>
+</p>
+
+<%= link_to 'Edit', edit_market_empresa_path(@market_empresa) %> |
+<%= link_to 'Back', market_empresas_path %>

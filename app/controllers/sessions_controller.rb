@@ -1,5 +1,6 @@
 class SessionsController < Devise::SessionsController
   def new
+  	@user = User.new
   	super
   end
 

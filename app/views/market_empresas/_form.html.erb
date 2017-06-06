@@ -1,0 +1,49 @@
+<%= form_for(@market_empresa) do |f| %>
+  <% if @market_empresa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@market_empresa.errors.count, "error") %> prohibited this market_empresa from being saved:</h2>
+
+      <ul>
+      <% @market_empresa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :marketPlace_id %><br>
+    <%= f.collection_select :marketPlace_id, MarketPlace.all, :id, :nome, {prompt: "Selecione um market place"} %>
+  </div>
+  <div class="field">
+    <%= f.text_field :empresa_id, :value => @emp_id, :type => "hidden" %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url, size: 100  %>
+  </div>
+  <div class="field">
+    <%= f.label :token %><br>
+    <%= f.text_field :token, size: 100  %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.text_field :password %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :intervaloEstoque %><br>
+    <%= f.number_field :intervaloEstoque %>
+  </div>
+  <div class="field">
+    <%= f.label :intervaloPedidos %><br>
+    <%= f.number_field :intervaloPedidos %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

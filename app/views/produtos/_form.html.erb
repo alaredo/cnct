@@ -13,8 +13,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :empresa_id %><br>
-    <%= f.collection_select :empresa_id, Empresa.all, :id, :name, {prompt: "Selecione uma empresa"} %>
+    <%= f.text_field :empresa_id, :value => @emp_id, :type => "hidden"%>
     
   </div>
   

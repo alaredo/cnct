@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
-  resources :users_empresas
+  resources :market_empresas
 
   devise_for :users, controllers: {sessions: "sessions"} 
-  resources :home
+  get 'sessions/new'
+
+
+  resources :users_empresas
+  resource :aux, :collection=>{:setEmpresa => :post}
+  resources :home 
   resources :produtos
   resources :empresas
   resources :market_places
@@ -14,7 +17,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
   
-
   
   
   

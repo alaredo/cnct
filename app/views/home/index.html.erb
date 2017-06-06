@@ -1,11 +1,11 @@
 <% if @multi %>
-	<%= form_for(@empresa) do |f| %>
+	<%= form_tag("home/setEmpresa", method: "get") do %>
 		<div class="field">
-		    <%= f.collection_select :id, @usuarioEmpresas.all, :id, :name, {prompt: "Selecione uma empresa"} %>
+		   <%= select_tag :id, "@usuarioEmpresas, :id, :name"  %>
 		</div>
 
 		<div class="actions">
-	    	<%= f.submit %>
+	    	<%= submit_tag 'Save'%>
 	  	</div>
 	<% end %>
 <% end %>

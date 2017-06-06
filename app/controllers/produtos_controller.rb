@@ -17,10 +17,12 @@ class ProdutosController < ApplicationController
   # GET /produtos/new
   def new
     @produto = Produto.new
+    @emp_id = session[:emp_id]
   end
 
   # GET /produtos/1/edit
   def edit
+    @emp_id = session[:emp_id]
   end
 
   # POST /produtos

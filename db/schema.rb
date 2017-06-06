@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601162928) do
+ActiveRecord::Schema.define(version: 20170606160833) do
 
   create_table "contatos", force: true do |t|
     t.string   "nome"
@@ -28,6 +28,22 @@ ActiveRecord::Schema.define(version: 20170601162928) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "market_empresas", force: true do |t|
+    t.integer  "marketPlace_id"
+    t.integer  "empresa_id"
+    t.string   "url"
+    t.string   "user"
+    t.string   "password"
+    t.string   "token"
+    t.integer  "intervaloEstoque"
+    t.integer  "intervaloPedidos"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "market_empresas", ["empresa_id"], name: "index_market_empresas_on_empresa_id", using: :btree
+  add_index "market_empresas", ["marketPlace_id"], name: "index_market_empresas_on_marketPlace_id", using: :btree
 
   create_table "market_places", force: true do |t|
     t.string   "nome"
