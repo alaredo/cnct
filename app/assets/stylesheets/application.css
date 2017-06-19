@@ -32,6 +32,10 @@ a:hover {
     color: hotpink;
 }
 
+a:background {
+   color: #fff;
+}
+
 a:link, a:active, a:visited {
    color: #000;
 }

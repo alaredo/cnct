@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606160833) do
+ActiveRecord::Schema.define(version: 20170619132747) do
 
   create_table "contatos", force: true do |t|
     t.string   "nome"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20170606160833) do
   create_table "produtos", force: true do |t|
     t.integer  "empresa_id"
     t.text     "descricao"
-    t.float    "valor",      limit: 24
+    t.float    "valor",             limit: 24
     t.integer  "saldo"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -65,6 +65,12 @@ ActiveRecord::Schema.define(version: 20170606160833) do
     t.string   "imagem4"
     t.string   "video1"
     t.string   "video2"
+    t.string   "sku_seller_id"
+    t.string   "product_seller_id"
+    t.string   "title"
+    t.string   "brand"
+    t.string   "gtin"
+    t.string   "categories"
   end
 
   add_index "produtos", ["empresa_id"], name: "index_produtos_on_empresa_id", using: :btree

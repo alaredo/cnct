@@ -1,0 +1,3 @@
+class CnovaController < ApplicationController
+	
+end

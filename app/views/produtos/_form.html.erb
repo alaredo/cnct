@@ -17,20 +17,46 @@
     
   </div>
   
-   
+  <div class="field">
+    <%= f.label "Titulo" %><br>
+    <%= f.text_field :title, size: 100 %>
+  </div> 
+  <div class="field">
+    <%= f.label :sku_seller_id %><br>
+    <%= f.text_field :sku_seller_id, size: 100 %>
+  </div>
+  <div class="field">
+    <%= f.label :product_seller_id %><br>
+    <%= f.text_field :product_seller_id, size: 100 %>
+  </div>
   <div class="field" >
     <%= f.label :descricao %><br>
     <%= f.cktext_area :descricao, :ckeditor => {:toolbar => 'mini'} %>
-    
   </div>
   <div class="field">
-    <%= f.label :valor %><br>
-    <%= f.text_field :valor %>
+    <%= f.label "Marca" %><br>
+    <%= f.text_field :brand, size: 100 %>
   </div>
   <div class="field">
-    <%= f.label :saldo %><br>
-    <%= f.number_field :saldo %>
+    <%= f.label :gtin %><br>
+    <%= f.text_field :gtin, size: 100 %>
   </div>
+  <div class="field">
+    <%= f.label "Categorias" %><br>
+    <%= f.text_field :categories, size: 100 %>
+  </div>
+  
+  
+  	<div class="field">
+	    <%= f.label :valor %><br>
+	    <%= f.text_field :valor %>
+	</div>
+	<div class="field">
+	   <%= f.label :saldo %><br>
+	   <%= f.text_field :saldo %>
+	</div>
+ 
+
   <div class="field">
     <%= f.label :imagem1 %><br>
     <%= f.text_field :imagem1, size: 100 %>

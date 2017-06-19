@@ -36,12 +36,14 @@
   </div>
   
   <div class="field">
-    <%= f.label :intervaloEstoque %><br>
+    Intervalo Atualização de Estoque<br>
     <%= f.number_field :intervaloEstoque %>
+    minutos
   </div>
   <div class="field">
-    <%= f.label :intervaloPedidos %><br>
+    Intervalo Consulta de Pedidos<br>
     <%= f.number_field :intervaloPedidos %>
+    minutos
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -7,10 +7,12 @@ Rails.application.routes.draw do
 
   resources :users_empresas
   resource :aux, :collection=>{:setEmpresa => :post}
+  resource :cnova
   resources :home 
   resources :produtos
   resources :empresas
   resources :market_places
+  resources :users
 
 
   get 'home/index'
