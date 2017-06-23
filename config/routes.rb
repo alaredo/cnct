@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :produto_market_places
+
+  resources :atributos_produtos
+
   resources :market_empresas
 
   devise_for :users, controllers: {sessions: "sessions"} 

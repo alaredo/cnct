@@ -1,0 +1,31 @@
+<h1>Listing produto_market_places</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Marketempresa</th>
+      <th>Valorde</th>
+      <th>Valorpor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produto_market_places.each do |produto_market_place| %>
+      <tr>
+        <td><%= produto_market_place.produto %></td>
+        <td><%= produto_market_place.marketEmpresa %></td>
+        <td><%= produto_market_place.valorDe %></td>
+        <td><%= produto_market_place.valorPor %></td>
+        <td><%= link_to 'Show', produto_market_place %></td>
+        <td><%= link_to 'Edit', edit_produto_market_place_path(produto_market_place) %></td>
+        <td><%= link_to 'Destroy', produto_market_place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Produto market place', new_produto_market_place_path %>

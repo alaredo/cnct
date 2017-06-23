@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619132747) do
+ActiveRecord::Schema.define(version: 20170623000512) do
+
+  create_table "atributos_produtos", force: true do |t|
+    t.integer  "produto_id"
+    t.string   "name"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "atributos_produtos", ["produto_id"], name: "index_atributos_produtos_on_produto_id", using: :btree
 
   create_table "contatos", force: true do |t|
     t.string   "nome"
@@ -52,6 +62,18 @@ ActiveRecord::Schema.define(version: 20170619132747) do
     t.datetime "updated_at"
   end
 
+  create_table "produto_market_places", force: true do |t|
+    t.integer  "produto_id"
+    t.integer  "marketEmpresa_id"
+    t.decimal  "valorDe",          precision: 10, scale: 0
+    t.decimal  "valorPor",         precision: 10, scale: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "produto_market_places", ["marketEmpresa_id"], name: "index_produto_market_places_on_marketEmpresa_id", using: :btree
+  add_index "produto_market_places", ["produto_id"], name: "index_produto_market_places_on_produto_id", using: :btree
+
   create_table "produtos", force: true do |t|
     t.integer  "empresa_id"
     t.text     "descricao"
@@ -71,6 +93,11 @@ ActiveRecord::Schema.define(version: 20170619132747) do
     t.string   "brand"
     t.string   "gtin"
     t.string   "categories"
+    t.string   "weight"
+    t.string   "length"
+    t.string   "width"
+    t.string   "height"
+    t.decimal  "valorOferta",                  precision: 10, scale: 0
   end
 
   add_index "produtos", ["empresa_id"], name: "index_produtos_on_empresa_id", using: :btree

@@ -5,7 +5,8 @@ class ProdutosController < ApplicationController
   # GET /produtos
   # GET /produtos.json
   def index
-    @produtos = Produto.all
+    @emp_id = session[:current_empresa_id]
+    @produtos = Produto.where("empresa_id=?", @emp_id)
   end
 
   # GET /produtos/1
@@ -17,12 +18,19 @@ class ProdutosController < ApplicationController
   # GET /produtos/new
   def new
     @produto = Produto.new
-    @emp_id = session[:emp_id]
+    @emp_id = session[:current_empresa_id]
   end
 
   # GET /produtos/1/edit
   def edit
-    @emp_id = session[:emp_id]
+    @emp_id = session[:current_empresa_id]
+    session[:produto_id] = params[:id]
+    @atributos_produto = AtributosProduto.where("produto_id=?",params[:id])
+    
+    sqlJoin =  "INNER JOIN market_empresas ON market_empresas.marketPlace_id = market_places.id
+                INNER JOIN produto_market_places ON produto_market_places.marketEmpresa_id = market_empresas.id"
+    
+    @markets_produto = MarketPlace.joins(sqlJoin ).select("market_places.*, produto_market_places.*")
   end
 
   # POST /produtos
@@ -88,6 +96,11 @@ class ProdutosController < ApplicationController
                                         :title,
                                         :brand,
                                         :gtin,
-                                        :categories)
+                                        :categories,
+                                        :weight,
+                                        :lenght,
+                                        :width,
+                                        :height,
+                                        :valorOferta)
     end
 end

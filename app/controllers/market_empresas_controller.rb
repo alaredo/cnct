@@ -14,12 +14,12 @@ class MarketEmpresasController < ApplicationController
 
   def new
     @market_empresa = MarketEmpresa.new
-    @emp_id = session[:emp_id]
+    @emp_id = session[:current_empresa_id]
     respond_with(@market_empresa)
   end
 
   def edit
-    @emp_id = session[:emp_id]
+    @emp_id = session[:current_empresa_id]
   end
 
   def create

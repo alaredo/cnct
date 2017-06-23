@@ -1,0 +1,29 @@
+<h1>Listing atributos_produtos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Name</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @atributos_produtos.each do |atributos_produto| %>
+      <tr>
+        <td><%= atributos_produto.produto %></td>
+        <td><%= atributos_produto.name %></td>
+        <td><%= atributos_produto.value %></td>
+        <td><%= link_to 'Show', atributos_produto %></td>
+        <td><%= link_to 'Edit', edit_atributos_produto_path(atributos_produto) %></td>
+        <td><%= link_to 'Destroy', atributos_produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Atributos produto', new_atributos_produto_path %>

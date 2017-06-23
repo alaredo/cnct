@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Produto:</strong>
+  <%= @produto_market_place.produto %>
+</p>
+
+<p>
+  <strong>Marketempresa:</strong>
+  <%= @produto_market_place.marketEmpresa %>
+</p>
+
+<p>
+  <strong>Valorde:</strong>
+  <%= @produto_market_place.valorDe %>
+</p>
+
+<p>
+  <strong>Valorpor:</strong>
+  <%= @produto_market_place.valorPor %>
+</p>
+
+<%= link_to 'Edit', edit_produto_market_place_path(@produto_market_place) %> |
+<%= link_to 'Back', produto_market_places_path %>

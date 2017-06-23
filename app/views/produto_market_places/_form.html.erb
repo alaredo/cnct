@@ -1,0 +1,33 @@
+<%= form_for(@produto_market_place) do |f| %>
+  <% if @produto_market_place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@produto_market_place.errors.count, "error") %> prohibited this produto_market_place from being saved:</h2>
+
+      <ul>
+      <% @produto_market_place.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :produto_id %><br>
+    <%= f.text_field :produto_id, :value => @produto_id %>
+  </div>
+  <div class="field">
+    <%= f.label :marketEmpresa_id %><br>
+    <%= f.collection_select :marketEmpresa_id, @markets, :id, :nome,  {prompt: "Selecione um market place"} %>
+  </div>
+  <div class="field">
+    <%= f.label :valorDe %><br>
+    <%= f.text_field :valorDe %>
+  </div>
+  <div class="field">
+    <%= f.label :valorPor %><br>
+    <%= f.text_field :valorPor %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -48,14 +48,38 @@
   
   
   	<div class="field">
-	    <%= f.label :valor %><br>
+	    <%= f.label "Valor de" %><br>
 	    <%= f.text_field :valor %>
 	</div>
+	<div class="field">
+	    <%= f.label "Valor por" %><br>
+	    <%= f.text_field :valorOferta %>
+	</div>
+	
 	<div class="field">
 	   <%= f.label :saldo %><br>
 	   <%= f.text_field :saldo %>
 	</div>
+	
+  <div class="field">
+	    <%= f.label "Peso" %><br>
+	    <%= f.text_field :weight %>
+  </div>
  
+  <div class="field">
+	    <%= f.label "Comprimento" %><br>
+	    <%= f.text_field :length %>
+  </div>
+  
+  <div class="field">
+	    <%= f.label "Largura" %><br>
+	    <%= f.text_field :width %>
+  </div>
+  
+  <div class="field">
+	    <%= f.label "Altura" %><br>
+	    <%= f.text_field :height %>
+  </div>
 
   <div class="field">
     <%= f.label :imagem1 %><br>
