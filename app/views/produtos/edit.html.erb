@@ -5,18 +5,24 @@
 
 <div>
     <h3>Atributos</h3>
-    <% @atributos_produto.each do |atributos_produto| %>
-          <table>
-            <tr>
-              <td><%= atributos_produto.name %></td>
-              <td><%= atributos_produto.value %></td>
-      
-        	  <td><%= link_to 'Edit', edit_atributos_produto_path(atributos_produto) %></td>
-	          <td><%= link_to 'Destroy', atributos_produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-            </tr>
-          </table>
-    <% end %>
+    <table>
+    	<tr>
+	      <th>Nome</th>
+	      <th>Valor</th>
+	      <th colspan="2"></th>
+	    </tr>
+	    <% @atributos_produto.each do |atributos_produto| %>
+	          
+	          <tr>
+	            <td><%= atributos_produto.name %></td>
+	            <td><%= atributos_produto.value %></td>
+	      		<td><%= link_to 'Show', atributos_produto %></td>
+	        	<td><%= link_to 'Edit', edit_atributos_produto_path(atributos_produto) %></td>
+		        <td><%= link_to 'Destroy', atributos_produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	          </tr>
+	          
+	    <% end %>
+    </table>
     </br>
     <%= link_to 'Adicionar Atributo', new_atributos_produto_path %>
 </div>
@@ -24,19 +30,30 @@
 </br>
 <div>
     <h3>Market Places</h3>
-    <% @markets_produto.each do |market_produto| %>
-          <table>
-            <tr>
-              <td><%= market_produto.nome %></td>
-              <td><%= market_produto.valorDe %></td>
-              <td><%= market_produto.valorPor %></td>
-      
-        	  <td><%= link_to 'Edit', edit_produto_market_place_path(market_produto) %></td>
-	          <td><%= link_to 'Destroy', market_produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-            </tr>
-          </table>
-    <% end %>
+    <table>
+	    <tr>
+	      <th>Market Place</th>
+	      <th>Valor de</th>
+	      <th>Valor por</th>
+	      <th>Status</th>
+	      <th colspan="3"></th>
+	    </tr>
+	    <% @markets_produto.each do |market_produto| %>
+	          
+	            <tr>
+	              <td><%= market_produto.nome %></td>
+	              <td><%= market_produto.valorDe %></td>
+	              <td><%= market_produto.valorPor %></td>
+	      		  <td><%= market_produto.status %></td>	
+	      		  
+	        	  <td><%= link_to 'Edit', edit_produto_market_place_path(market_produto) %></td>
+		          <td><%= link_to 'Destroy', market_produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	              <td><%= link_to 'Enviar', produto_market_place_path, method: "sendProd", remote: true %></td>	
+	              
+	            </tr>
+	          
+	    <% end %>
+    </table>
     </br>
     <%= link_to 'Adicionar Market Place', new_produto_market_place_path %>
 </div>

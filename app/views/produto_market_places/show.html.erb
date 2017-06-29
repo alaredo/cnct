@@ -2,23 +2,28 @@
 
 <p>
   <strong>Produto:</strong>
-  <%= @produto_market_place.produto %>
+  <%= @produto_market_place.produto.title %>
 </p>
 
 <p>
-  <strong>Marketempresa:</strong>
-  <%= @produto_market_place.marketEmpresa %>
+  <strong>Market Place:</strong>
+  <%= @produto_market_place.marketEmpresa.marketPlace.nome %>
 </p>
 
 <p>
-  <strong>Valorde:</strong>
+  <strong>Valor De:</strong>
   <%= @produto_market_place.valorDe %>
 </p>
 
 <p>
-  <strong>Valorpor:</strong>
+  <strong>Valor Por:</strong>
   <%= @produto_market_place.valorPor %>
 </p>
 
+<p>
+  <strong>Status:</strong>
+  <%= @produto_market_place.status %>
+</p>
+
 <%= link_to 'Edit', edit_produto_market_place_path(@produto_market_place) %> |
-<%= link_to 'Back', produto_market_places_path %>
+<%= link_to 'Back', edit_produto_path(@prod_id) %>

@@ -5,6 +5,7 @@ class CreateProdutoMarketPlaces < ActiveRecord::Migration
       t.references :marketEmpresa, index: true
       t.decimal :valorDe
       t.decimal :valorPor
+      t.string :status
 
       t.timestamps
     end

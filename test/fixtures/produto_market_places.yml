@@ -5,9 +5,11 @@ one:
   marketEmpresa_id: 
   valorDe: 9.99
   valorPor: 9.99
+  status: MyString
 
 two:
   produto_id: 
   marketEmpresa_id: 
   valorDe: 9.99
   valorPor: 9.99
+  status: MyString

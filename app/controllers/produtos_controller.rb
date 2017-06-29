@@ -25,12 +25,20 @@ class ProdutosController < ApplicationController
   def edit
     @emp_id = session[:current_empresa_id]
     session[:produto_id] = params[:id]
+    @prod_id = params[:id]
     @atributos_produto = AtributosProduto.where("produto_id=?",params[:id])
     
-    sqlJoin =  "INNER JOIN market_empresas ON market_empresas.marketPlace_id = market_places.id
-                INNER JOIN produto_market_places ON produto_market_places.marketEmpresa_id = market_empresas.id"
+    #sqlJoin =  "INNER JOIN market_empresas ON market_empresas.marketPlace_id = market_places.id 
+    #            INNER JOIN produto_market_places ON (produto_market_places.marketEmpresa_id = market_empresas.id) and (produto_market_places.produto_id = " + @prod_id.to_str + ")"
+                
     
-    @markets_produto = MarketPlace.joins(sqlJoin ).select("market_places.*, produto_market_places.*")
+    #@markets_produto = MarketPlace.joins(sqlJoin ).select("market_places.*, produto_market_places.*")
+  
+    sqlJoin =  "INNER JOIN market_empresas ON market_empresas.id = produto_market_places.marketEmpresa_id 
+                INNER JOIN market_places ON (market_places.id = market_empresas.marketPlace_id)"
+    @markets_produto = ProdutoMarketPlace.joins(sqlJoin).where("produto_market_places.produto_id = " + params[:id].to_str).select( "market_places.*, produto_market_places.*")
+  
+  
   end
 
   # POST /produtos
@@ -72,6 +80,8 @@ class ProdutosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

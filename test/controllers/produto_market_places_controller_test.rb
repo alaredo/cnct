@@ -18,7 +18,7 @@ class ProdutoMarketPlacesControllerTest < ActionController::TestCase
 
   test "should create produto_market_place" do
     assert_difference('ProdutoMarketPlace.count') do
-      post :create, produto_market_place: { marketEmpresa_id: @produto_market_place.marketEmpresa_id, produto_id: @produto_market_place.produto_id, valorDe: @produto_market_place.valorDe, valorPor: @produto_market_place.valorPor }
+      post :create, produto_market_place: { marketEmpresa_id: @produto_market_place.marketEmpresa_id, produto_id: @produto_market_place.produto_id, status: @produto_market_place.status, valorDe: @produto_market_place.valorDe, valorPor: @produto_market_place.valorPor }
     end
 
     assert_redirected_to produto_market_place_path(assigns(:produto_market_place))
@@ -35,7 +35,7 @@ class ProdutoMarketPlacesControllerTest < ActionController::TestCase
   end
 
   test "should update produto_market_place" do
-    patch :update, id: @produto_market_place, produto_market_place: { marketEmpresa_id: @produto_market_place.marketEmpresa_id, produto_id: @produto_market_place.produto_id, valorDe: @produto_market_place.valorDe, valorPor: @produto_market_place.valorPor }
+    patch :update, id: @produto_market_place, produto_market_place: { marketEmpresa_id: @produto_market_place.marketEmpresa_id, produto_id: @produto_market_place.produto_id, status: @produto_market_place.status, valorDe: @produto_market_place.valorDe, valorPor: @produto_market_place.valorPor }
     assert_redirected_to produto_market_place_path(assigns(:produto_market_place))
   end
 

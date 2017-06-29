@@ -7,6 +7,7 @@
       <th>Marketempresa</th>
       <th>Valorde</th>
       <th>Valorpor</th>
+      <th>Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,10 +15,11 @@
   <tbody>
     <% @produto_market_places.each do |produto_market_place| %>
       <tr>
-        <td><%= produto_market_place.produto %></td>
-        <td><%= produto_market_place.marketEmpresa %></td>
+        <td><%= produto_market_place.produto.title %></td>
+        <td><%= produto_market_place.marketEmpresa.marketPlace.nome %></td>
         <td><%= produto_market_place.valorDe %></td>
         <td><%= produto_market_place.valorPor %></td>
+        <td><%= produto_market_place.status %></td>
         <td><%= link_to 'Show', produto_market_place %></td>
         <td><%= link_to 'Edit', edit_produto_market_place_path(produto_market_place) %></td>
         <td><%= link_to 'Destroy', produto_market_place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Produto market place', new_produto_market_place_path %>
+<%= link_to 'Novo Market Place para o produto', new_produto_market_place_path %>

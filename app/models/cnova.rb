@@ -1,4 +1,4 @@
-class Cnova
+ class Cnova
   require 'CNovaApiLojistaV2'
 	require 'CNovaApiLojistaV2/client'
 	require 'date'
@@ -15,8 +15,8 @@ class Cnova
 
 	def new
 		logger.debug "=================================================="
-        logger.debug "--------------------------> New Cnova" 
-        logger.debug "=================================================="
+    logger.debug "--------------------------> New Cnova" 
+    logger.debug "=================================================="
 		
 		
 	end

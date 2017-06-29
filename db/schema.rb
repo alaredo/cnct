@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623000512) do
+ActiveRecord::Schema.define(version: 20170627145343) do
 
   create_table "atributos_produtos", force: true do |t|
     t.integer  "produto_id"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20170623000512) do
     t.integer  "marketEmpresa_id"
     t.decimal  "valorDe",          precision: 10, scale: 0
     t.decimal  "valorPor",         precision: 10, scale: 0
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
