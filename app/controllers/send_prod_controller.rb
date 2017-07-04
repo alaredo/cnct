@@ -7,6 +7,8 @@ class SendProdController < ApplicationController
   
   def edit
     
+    
+    
   end
   
 private
