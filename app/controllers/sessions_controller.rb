@@ -4,8 +4,8 @@ class SessionsController < Devise::SessionsController
   	super
   end
 
+
   def create
-  	
   	session[:current_user_id] = current_user.id
   	empList = UsersEmpresa.where("user_id=?",current_user.id)
   	unless empList.nil?

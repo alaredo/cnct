@@ -1,23 +1,19 @@
 Rails.application.routes.draw do
   resources :produto_market_places
-
   resources :atributos_produtos
-
   resources :market_empresas
+  resources :send_prod
+  
 
   devise_for :users, controllers: {sessions: "sessions"} 
   get 'sessions/new'
-
-
+  
   resources :users_empresas
-  resource :aux, :collection=>{:setEmpresa => :post}
-  resource :cnova
+  resources :cnova
   resources :home 
   resources :produtos
   resources :empresas
   resources :market_places
-  resources :users
-
 
   get 'home/index'
   root 'home#index'
