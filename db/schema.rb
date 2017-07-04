@@ -23,13 +23,6 @@ ActiveRecord::Schema.define(version: 20170627145343) do
 
   add_index "atributos_produtos", ["produto_id"], name: "index_atributos_produtos_on_produto_id", using: :btree
 
-  create_table "contatos", force: true do |t|
-    t.string   "nome"
-    t.string   "telefone"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "empresas", force: true do |t|
     t.string   "login"
     t.string   "passwd"

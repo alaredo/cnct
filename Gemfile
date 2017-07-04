@@ -43,5 +43,5 @@ gem 'spring',        group: :development
 gem 'ckeditor'
 gem 'test-unit' 
 gem 'devise'
-gem 'CNovaApiLojistaV2', path:"/home/alaredo/programas/ruby/cnovaSDK/sdk"
+gem 'CNovaApiLojistaV2', path:"../cnovaSDK/sdk"
 

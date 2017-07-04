@@ -1,5 +1,5 @@
 PATH
-  remote: /home/alaredo/programas/ruby/cnovaSDK/sdk
+  remote: ../cnovaSDK/sdk
   specs:
     CNovaApiLojistaV2 (1.0.0)
       addressable (~> 2.2, >= 2.2.4)
