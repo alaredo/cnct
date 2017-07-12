@@ -9,10 +9,8 @@ class HomeController < ApplicationController
   			empList = UsersEmpresa.where("user_id=?",current_user.id)
   			@usuarioEmpresas = Empresa.all
   		end
-      @cnova = Cnova.new
-      #@cnova.cadProduto
-      #@cnova.loadProdutos
-      @cnova.getSellerItens
+        @cnova = Cnova.new
+        @cnova.getOrders
         
         logger.debug "=================================================="
         logger.debug "--------------------------> fim do index home" 

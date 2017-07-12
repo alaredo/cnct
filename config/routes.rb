@@ -1,21 +1,46 @@
 Rails.application.routes.draw do
+  resources :freights
+
+  resources :orders
+
+  resources :shipping_addresses
+
+  resources :billing_addresses
+
+  resources :phones
+
+  resources :customers
+
+  resources :lojas
+  
   resources :produto_market_places
+  
   resources :atributos_produtos
+  
   resources :market_empresas
+  
   resources :send_prod
   
+  resources :get_prod_by_seller
 
   devise_for :users, controllers: {sessions: "sessions"} 
+  
   get 'sessions/new'
   
   resources :users_empresas
+  
   resources :cnova
+  
   resources :home 
+  
   resources :produtos
+  
   resources :empresas
+  
   resources :market_places
 
   get 'home/index'
+  
   root 'home#index'
 
   

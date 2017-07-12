@@ -1,0 +1,39 @@
+<h1>Listing freights</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Actual amount</th>
+      <th>Charged amount</th>
+      <th>Transit time</th>
+      <th>Cross docking time</th>
+      <th>Additional info</th>
+      <th>Type</th>
+      <th>Schedule at</th>
+      <th>Schedule period</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @freights.each do |freight| %>
+      <tr>
+        <td><%= freight.actual_amount %></td>
+        <td><%= freight.charged_amount %></td>
+        <td><%= freight.transit_time %></td>
+        <td><%= freight.cross_docking_time %></td>
+        <td><%= freight.additional_info %></td>
+        <td><%= freight.type %></td>
+        <td><%= freight.schedule_at %></td>
+        <td><%= freight.schedule_period %></td>
+        <td><%= link_to 'Show', freight %></td>
+        <td><%= link_to 'Edit', edit_freight_path(freight) %></td>
+        <td><%= link_to 'Destroy', freight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Freight', new_freight_path %>

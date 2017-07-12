@@ -9,6 +9,8 @@ class MarketEmpresasController < ApplicationController
   end
 
   def show
+    
+    @lojas = Loja.where("MarketPlace_id = ?", @market_empresa.marketPlace_id)
     respond_with(@market_empresa)
   end
 

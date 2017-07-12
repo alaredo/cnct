@@ -108,7 +108,7 @@ class ProdutosController < ApplicationController
                                         :gtin,
                                         :categories,
                                         :weight,
-                                        :lenght,
+                                        :length,
                                         :width,
                                         :height,
                                         :valorOferta)

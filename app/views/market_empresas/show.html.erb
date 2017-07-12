@@ -36,6 +36,27 @@
 </p>
 </br>
 </br>
-
+<div>
+	<table>
+	  <tr>
+	      <th>Marketplace</th>
+	      <th>Code</th>
+	      <th>Name</th>
+	      <th>Image</th>
+	      <th colspan="1"></th>
+	  </tr>
+	  <% @lojas.each do |loja| %>
+	      <tr>
+	        <td><%= loja.MarketPlace.nome %></td>
+	        <td><%= loja.code %></td>
+	        <td><%= loja.name %></td>
+	        <td><%= loja.image %></td>
+	        <td><%= link_to 'Exibir Produtos', edit_get_prod_by_seller_path(loja.id) %></td>
+	      </tr>
+	  <% end %>
+	</table>
+</div>
+</br>
+</br>
 <%= link_to 'Edit', edit_market_empresa_path(@market_empresa) %> |
 <%= link_to 'Back', market_empresas_path %>

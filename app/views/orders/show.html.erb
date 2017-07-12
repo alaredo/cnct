@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order site:</strong>
+  <%= @order.order_site_id %>
+</p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @order.site %>
+</p>
+
+<p>
+  <strong>Payment type:</strong>
+  <%= @order.payment_type %>
+</p>
+
+<p>
+  <strong>Purcharsed at:</strong>
+  <%= @order.purcharsed_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @order.updated_at %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<p>
+  <strong>Total amount:</strong>
+  <%= @order.total_amount %>
+</p>
+
+<p>
+  <strong>Total discount amount:</strong>
+  <%= @order.total_discount_amount %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @order.customer %>
+</p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @order.seller %>
+</p>
+
+<p>
+  <strong>Billingaddress:</strong>
+  <%= @order.billingAddress %>
+</p>
+
+<p>
+  <strong>Shippingaddress:</strong>
+  <%= @order.shippingAddress %>
+</p>
+
+<p>
+  <strong>Freight:</strong>
+  <%= @order.freight %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

@@ -1,0 +1,49 @@
+<%= form_for(@freight) do |f| %>
+  <% if @freight.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@freight.errors.count, "error") %> prohibited this freight from being saved:</h2>
+
+      <ul>
+      <% @freight.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :actual_amount %><br>
+    <%= f.text_field :actual_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :charged_amount %><br>
+    <%= f.text_field :charged_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :transit_time %><br>
+    <%= f.number_field :transit_time %>
+  </div>
+  <div class="field">
+    <%= f.label :cross_docking_time %><br>
+    <%= f.number_field :cross_docking_time %>
+  </div>
+  <div class="field">
+    <%= f.label :additional_info %><br>
+    <%= f.text_field :additional_info %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :schedule_at %><br>
+    <%= f.datetime_select :schedule_at %>
+  </div>
+  <div class="field">
+    <%= f.label :schedule_period %><br>
+    <%= f.text_field :schedule_period %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

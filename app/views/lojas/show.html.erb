@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Marketplace:</strong>
+  <%= @loja.MarketPlace.nome %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @loja.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @loja.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @loja.image %>
+</p>
+
+<%= link_to 'Edit', edit_loja_path(@loja) %> |
+<%= link_to 'Back', lojas_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627145343) do
+ActiveRecord::Schema.define(version: 20170711174734) do
 
   create_table "atributos_produtos", force: true do |t|
     t.integer  "produto_id"
@@ -23,6 +23,39 @@ ActiveRecord::Schema.define(version: 20170627145343) do
 
   add_index "atributos_produtos", ["produto_id"], name: "index_atributos_produtos_on_produto_id", using: :btree
 
+  create_table "billing_addresses", force: true do |t|
+    t.string   "address"
+    t.string   "number"
+    t.string   "complement"
+    t.string   "quarter"
+    t.string   "reference"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country_id"
+    t.string   "zip_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contatos", force: true do |t|
+    t.string   "nome"
+    t.string   "telefone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "customers", force: true do |t|
+    t.string   "name"
+    t.string   "document_number"
+    t.string   "type"
+    t.string   "gender"
+    t.datetime "create_at"
+    t.string   "email"
+    t.datetime "birth_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "empresas", force: true do |t|
     t.string   "login"
     t.string   "passwd"
@@ -31,6 +64,30 @@ ActiveRecord::Schema.define(version: 20170627145343) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "freights", force: true do |t|
+    t.decimal  "actual_amount",      precision: 10, scale: 0
+    t.string   "charged_amount"
+    t.integer  "transit_time"
+    t.integer  "cross_docking_time"
+    t.string   "additional_info"
+    t.string   "type"
+    t.datetime "schedule_at"
+    t.string   "schedule_period"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lojas", force: true do |t|
+    t.integer  "MarketPlace_id"
+    t.string   "code"
+    t.string   "name"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lojas", ["MarketPlace_id"], name: "index_lojas_on_MarketPlace_id", using: :btree
 
   create_table "market_empresas", force: true do |t|
     t.integer  "marketPlace_id"
@@ -54,6 +111,39 @@ ActiveRecord::Schema.define(version: 20170627145343) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "orders", force: true do |t|
+    t.string   "order_site_id"
+    t.string   "site"
+    t.integer  "payment_type"
+    t.datetime "purcharsed_at"
+    t.datetime "updated_at"
+    t.string   "status"
+    t.decimal  "total_amount",          precision: 10, scale: 0
+    t.decimal  "total_discount_amount", precision: 10, scale: 0
+    t.integer  "customer_id"
+    t.integer  "seller_id"
+    t.integer  "billingAddress_id"
+    t.integer  "shippingAddress_id"
+    t.integer  "freight_id"
+    t.datetime "created_at"
+  end
+
+  add_index "orders", ["billingAddress_id"], name: "index_orders_on_billingAddress_id", using: :btree
+  add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
+  add_index "orders", ["freight_id"], name: "index_orders_on_freight_id", using: :btree
+  add_index "orders", ["seller_id"], name: "index_orders_on_seller_id", using: :btree
+  add_index "orders", ["shippingAddress_id"], name: "index_orders_on_shippingAddress_id", using: :btree
+
+  create_table "phones", force: true do |t|
+    t.string   "type"
+    t.string   "number"
+    t.integer  "customer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "phones", ["customer_id"], name: "index_phones_on_customer_id", using: :btree
 
   create_table "produto_market_places", force: true do |t|
     t.integer  "produto_id"
@@ -95,6 +185,21 @@ ActiveRecord::Schema.define(version: 20170627145343) do
   end
 
   add_index "produtos", ["empresa_id"], name: "index_produtos_on_empresa_id", using: :btree
+
+  create_table "shipping_addresses", force: true do |t|
+    t.string   "address"
+    t.string   "number"
+    t.string   "complement"
+    t.string   "quarter"
+    t.string   "reference"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country_id"
+    t.string   "zip_code"
+    t.string   "recipient_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

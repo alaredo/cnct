@@ -33,11 +33,13 @@
           <div id="menu">
                 <% if session[:current_empresa_id]!= nil %>    
 
-                    <%= link_to 'Pedidos', produtos_path, style: "color: white; font-size:small; text-decoration:none;" %></p>
+                    <%= link_to 'Pedidos', orders_path, style: "color: white; font-size:small; text-decoration:none;" %></p>
+                    <%= link_to 'Clientes', customers_path, style: "color: white; font-size:small; text-decoration:none;" %></p>
                     <%= link_to 'Produtos', produtos_path, style: "color: white; font-size:small; text-decoration:none;" %></p>
                     <%= link_to 'Market Places', market_empresas_path, style: "color: white; font-size:small; text-decoration:none;" %></p>
                     <hr>
                     <%= link_to 'Markets', market_places_path, style: "color: white; font-size:small; text-decoration:none;" %></p>
+                    <%= link_to 'Lojas', lojas_path, style: "color: white; font-size:small; text-decoration:none;" %></p>
                     <%= link_to 'Empresas', empresas_path, style: "color: white; font-size:small; text-decoration:none;" %></p>
 
                 <% end %>

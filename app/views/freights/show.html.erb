@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Actual amount:</strong>
+  <%= @freight.actual_amount %>
+</p>
+
+<p>
+  <strong>Charged amount:</strong>
+  <%= @freight.charged_amount %>
+</p>
+
+<p>
+  <strong>Transit time:</strong>
+  <%= @freight.transit_time %>
+</p>
+
+<p>
+  <strong>Cross docking time:</strong>
+  <%= @freight.cross_docking_time %>
+</p>
+
+<p>
+  <strong>Additional info:</strong>
+  <%= @freight.additional_info %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @freight.type %>
+</p>
+
+<p>
+  <strong>Schedule at:</strong>
+  <%= @freight.schedule_at %>
+</p>
+
+<p>
+  <strong>Schedule period:</strong>
+  <%= @freight.schedule_period %>
+</p>
+
+<%= link_to 'Edit', edit_freight_path(@freight) %> |
+<%= link_to 'Back', freights_path %>

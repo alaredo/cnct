@@ -1,0 +1,33 @@
+<h1>Lojas</h1>
+  
+ <tbody>
+ 	<div>
+ 	<table>
+  	    <tr>
+	      <th>Marketplace</th>
+	      <th>Code</th>
+	      <th>Name</th>
+	      <th>Image</th>
+	      <th colspan="3"></th>
+	    </tr>
+	    <% @lojas.each do |loja| %>
+	      	
+		      <tr>
+		        <td><%= loja.MarketPlace.nome %></td>
+		        <td><%= loja.code %></td>
+		        <td><%= loja.name %></td>
+		        <td><%= loja.image %></td>
+		        <td><%= link_to 'Show', loja %></td>
+		        <td><%= link_to 'Edit', edit_loja_path(loja) %></td>
+		        <td><%= link_to 'Destroy', loja, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		      </tr>
+	      
+	    <% end %>
+	</table>
+	<div>
+  </tbody>
+
+
+<br>
+
+<%= link_to 'New Loja', new_loja_path %>

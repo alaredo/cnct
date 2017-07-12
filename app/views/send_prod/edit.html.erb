@@ -1,4 +1,16 @@
-<h1>Enviando Produto Edit</h1>
+<h1>Enviando Produto</h1>
 
+<p>
+  <strong>Produto:</strong>
+  <%= @produto.title %>
+</p>
+<p>
+  <strong>Market Place:</strong>
+  <%= @marketPlace.nome %>
+</p>
+<p>
+  <strongStatus:</strong>
+  <%= @msg %>
+</p>
 
-<%= link_to 'Back', produtos_path %>
+<%= link_to 'Back', edit_produto_path(@produto.id) %>

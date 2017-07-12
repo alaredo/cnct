@@ -1,0 +1,21 @@
+<h1>Produtos <%=@loja.name%></h1>
+
+
+<div>
+	<table>
+	  <tr>
+	  	<th>Sku Seller Id</th>
+	  	<th>Titulo</th>
+	  	<th>Marca</th>
+   	  </tr>
+	<% @response.each do |sellerItem| %>
+	      <tr>
+	        <td><%= sellerItem.sku_seller_id %></td>
+	        <td><%= sellerItem.title %></td>
+	        <td><%= sellerItem.brand %></td>
+	        
+	      </tr>
+	  <% end %>
+	  </table>
+</div>
+

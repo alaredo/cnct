@@ -3,7 +3,9 @@ class Aux
   attr_accessor :id, :name
   
 
-  def connect
-
+  def Logue (text)
+    Rails.logger.debug "=================================================="
+    Rails.logger.debug text
+    Rails.logger.debug "=================================================="
   end
 end
