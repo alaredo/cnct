@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711174734) do
+ActiveRecord::Schema.define(version: 20170725210251) do
 
   create_table "atributos_produtos", force: true do |t|
     t.integer  "produto_id"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(version: 20170711174734) do
     t.datetime "updated_at"
   end
 
+  create_table "carriers", force: true do |t|
+    t.string   "name"
+    t.string   "cnpj"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "contatos", force: true do |t|
     t.string   "nome"
     t.string   "telefone"
@@ -47,13 +54,14 @@ ActiveRecord::Schema.define(version: 20170711174734) do
   create_table "customers", force: true do |t|
     t.string   "name"
     t.string   "document_number"
-    t.string   "type"
     t.string   "gender"
     t.datetime "create_at"
     t.string   "email"
     t.datetime "birth_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "typeDoc"
+    t.string   "idCustomerMP"
   end
 
   create_table "empresas", force: true do |t|
@@ -71,12 +79,41 @@ ActiveRecord::Schema.define(version: 20170711174734) do
     t.integer  "transit_time"
     t.integer  "cross_docking_time"
     t.string   "additional_info"
-    t.string   "type"
     t.datetime "schedule_at"
     t.string   "schedule_period"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "typeFreight"
   end
+
+  create_table "gift_wraps", force: true do |t|
+    t.boolean  "available"
+    t.decimal  "value",           precision: 10, scale: 0
+    t.boolean  "message_support"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invoices", force: true do |t|
+    t.string   "cnpj"
+    t.string   "number"
+    t.string   "serie"
+    t.datetime "issuedAt"
+    t.string   "accessKey"
+    t.string   "linkXml"
+    t.string   "linkDanfe"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_trackings", force: true do |t|
+    t.string   "href"
+    t.integer  "tracking_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "item_trackings", ["tracking_id"], name: "index_item_trackings_on_tracking_id", using: :btree
 
   create_table "lojas", force: true do |t|
     t.integer  "MarketPlace_id"
@@ -112,6 +149,24 @@ ActiveRecord::Schema.define(version: 20170711174734) do
     t.datetime "updated_at"
   end
 
+  create_table "order_items", force: true do |t|
+    t.string   "sku_seller_id"
+    t.string   "name"
+    t.string   "sale_price"
+    t.boolean  "sent"
+    t.integer  "freight_id"
+    t.integer  "giftWrap_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "order_id"
+    t.integer  "quantity"
+    t.string   "idOrderItemMP"
+  end
+
+  add_index "order_items", ["freight_id"], name: "index_order_items_on_freight_id", using: :btree
+  add_index "order_items", ["giftWrap_id"], name: "index_order_items_on_giftWrap_id", using: :btree
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+
   create_table "orders", force: true do |t|
     t.string   "order_site_id"
     t.string   "site"
@@ -122,17 +177,21 @@ ActiveRecord::Schema.define(version: 20170711174734) do
     t.decimal  "total_amount",          precision: 10, scale: 0
     t.decimal  "total_discount_amount", precision: 10, scale: 0
     t.integer  "customer_id"
-    t.integer  "seller_id"
     t.integer  "billingAddress_id"
     t.integer  "shippingAddress_id"
     t.integer  "freight_id"
     t.datetime "created_at"
+    t.integer  "loja_id"
+    t.datetime "approved_at"
+    t.string   "idOrderMP"
+    t.integer  "MarketEmpresa_id"
   end
 
+  add_index "orders", ["MarketEmpresa_id"], name: "index_orders_on_MarketEmpresa_id", using: :btree
   add_index "orders", ["billingAddress_id"], name: "index_orders_on_billingAddress_id", using: :btree
   add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
   add_index "orders", ["freight_id"], name: "index_orders_on_freight_id", using: :btree
-  add_index "orders", ["seller_id"], name: "index_orders_on_seller_id", using: :btree
+  add_index "orders", ["loja_id"], name: "index_orders_on_loja_id", using: :btree
   add_index "orders", ["shippingAddress_id"], name: "index_orders_on_shippingAddress_id", using: :btree
 
   create_table "phones", force: true do |t|
@@ -186,6 +245,17 @@ ActiveRecord::Schema.define(version: 20170711174734) do
 
   add_index "produtos", ["empresa_id"], name: "index_produtos_on_empresa_id", using: :btree
 
+  create_table "promotions", force: true do |t|
+    t.string   "name"
+    t.decimal  "amount",       precision: 10, scale: 0
+    t.string   "type"
+    t.integer  "orderItem_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "promotions", ["orderItem_id"], name: "index_promotions_on_orderItem_id", using: :btree
+
   create_table "shipping_addresses", force: true do |t|
     t.string   "address"
     t.string   "number"
@@ -200,6 +270,23 @@ ActiveRecord::Schema.define(version: 20170711174734) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "trackings", force: true do |t|
+    t.string   "controlPoint"
+    t.string   "description"
+    t.datetime "occurredAt"
+    t.string   "url"
+    t.string   "number"
+    t.string   "sellerDeliveryId"
+    t.string   "cte"
+    t.integer  "carrier_id"
+    t.integer  "invoice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trackings", ["carrier_id"], name: "index_trackings_on_carrier_id", using: :btree
+  add_index "trackings", ["invoice_id"], name: "index_trackings_on_invoice_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

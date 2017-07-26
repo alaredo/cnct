@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cnpj:</strong>
+  <%= @invoice.cnpj %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @invoice.number %>
+</p>
+
+<p>
+  <strong>Serie:</strong>
+  <%= @invoice.serie %>
+</p>
+
+<p>
+  <strong>Issuedat:</strong>
+  <%= @invoice.issuedAt %>
+</p>
+
+<p>
+  <strong>Accesskey:</strong>
+  <%= @invoice.accessKey %>
+</p>
+
+<p>
+  <strong>Linkxml:</strong>
+  <%= @invoice.linkXml %>
+</p>
+
+<p>
+  <strong>Linkdanfe:</strong>
+  <%= @invoice.linkDanfe %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  available: false
+  value: 9.99
+  message_support: false
+
+two:
+  available: false
+  value: 9.99
+  message_support: false

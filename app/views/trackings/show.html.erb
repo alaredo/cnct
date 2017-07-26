@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Controlpoint:</strong>
+  <%= @tracking.controlPoint %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tracking.description %>
+</p>
+
+<p>
+  <strong>Occurredat:</strong>
+  <%= @tracking.occurredAt %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @tracking.url %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @tracking.number %>
+</p>
+
+<p>
+  <strong>Sellerdeliveryid:</strong>
+  <%= @tracking.sellerDeliveryId %>
+</p>
+
+<p>
+  <strong>Cte:</strong>
+  <%= @tracking.cte %>
+</p>
+
+<p>
+  <strong>Carrier:</strong>
+  <%= @tracking.carrier %>
+</p>
+
+<p>
+  <strong>Invoice:</strong>
+  <%= @tracking.invoice %>
+</p>
+
+<%= link_to 'Edit', edit_tracking_path(@tracking) %> |
+<%= link_to 'Back', trackings_path %>

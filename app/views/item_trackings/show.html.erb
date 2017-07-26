@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Href:</strong>
+  <%= @item_tracking.href %>
+</p>
+
+<p>
+  <strong>Tracking:</strong>
+  <%= @item_tracking.tracking %>
+</p>
+
+<%= link_to 'Edit', edit_item_tracking_path(@item_tracking) %> |
+<%= link_to 'Back', item_trackings_path %>

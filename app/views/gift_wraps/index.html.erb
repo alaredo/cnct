@@ -1,0 +1,29 @@
+<h1>Listing gift_wraps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Available</th>
+      <th>Value</th>
+      <th>Message support</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gift_wraps.each do |gift_wrap| %>
+      <tr>
+        <td><%= gift_wrap.available %></td>
+        <td><%= gift_wrap.value %></td>
+        <td><%= gift_wrap.message_support %></td>
+        <td><%= link_to 'Show', gift_wrap %></td>
+        <td><%= link_to 'Edit', edit_gift_wrap_path(gift_wrap) %></td>
+        <td><%= link_to 'Destroy', gift_wrap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gift wrap', new_gift_wrap_path %>

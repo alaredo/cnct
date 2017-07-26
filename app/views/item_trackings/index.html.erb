@@ -1,0 +1,27 @@
+<h1>Listing item_trackings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Href</th>
+      <th>Tracking</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @item_trackings.each do |item_tracking| %>
+      <tr>
+        <td><%= item_tracking.href %></td>
+        <td><%= item_tracking.tracking %></td>
+        <td><%= link_to 'Show', item_tracking %></td>
+        <td><%= link_to 'Edit', edit_item_tracking_path(item_tracking) %></td>
+        <td><%= link_to 'Destroy', item_tracking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item tracking', new_item_tracking_path %>

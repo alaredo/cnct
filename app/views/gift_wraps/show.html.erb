@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @gift_wrap.available %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @gift_wrap.value %>
+</p>
+
+<p>
+  <strong>Message support:</strong>
+  <%= @gift_wrap.message_support %>
+</p>
+
+<%= link_to 'Edit', edit_gift_wrap_path(@gift_wrap) %> |
+<%= link_to 'Back', gift_wraps_path %>

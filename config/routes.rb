@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  resources :item_trackings
+
+  resources :trackings
+
+  resources :invoices
+
+  resources :carriers
+
+  resources :promotions
+
+  resources :order_items
+
+  resources :gift_wraps
+
   resources :freights
 
   resources :orders
@@ -21,7 +35,11 @@ Rails.application.routes.draw do
   
   resources :send_prod
   
+  resources :send_order
+  
   resources :get_prod_by_seller
+  
+  resources :get_order
 
   devise_for :users, controllers: {sessions: "sessions"} 
   

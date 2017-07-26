@@ -195,9 +195,84 @@
 
 	  begin
       get_orders_response = CNovaApiLojistaV2::Api::OrdersApi.get_orders(0, 100);
-      puts get_orders_response.inspect;
+      #puts get_orders_response.inspect;
     rescue => e
       puts e.inspect;
     end
 	end
+	
+	def sendOrder(order)
+	  ordemItem = CNovaApiLojistaV2::Model::OrderItemSandbox.new();
+	  ordemItem.sku_seller_id = "COMPUTADOR_xxx"
+	  ordemItem.name = "Computador Novo XXXX"
+	  ordemItem.sale_price = 100 
+	  ordemItem.quantity = 1
+	  
+	  items = Array.new
+	  items << ordemItem
+	  
+	  billingAddress = CNovaApiLojistaV2::Model::BillingAddress.new()
+	  billingAddress.address = "Rua xyz"
+    billingAddress.number = "231"
+    billingAddress.complement = "casa"
+    billingAddress.quarter = "1"
+    billingAddress.reference = "lala"
+    billingAddress.city = "Sao Paulo"
+    billingAddress.state = "SP"
+    billingAddress.country_id = "BR"
+    billingAddress.zip_code = "13022234"
+    #billingAddress.recipient_name = "Maria"
+    
+    phonesSandbox = CNovaApiLojistaV2::Model::PhonesSandbox.new()
+    phonesSandbox.mobile = "11202039283"
+    phonesSandbox.home = "11202039283"
+    phonesSandbox.office = "11202039283"
+	  
+	  customerCnova = CNovaApiLojistaV2::Model::CustomerSandbox.new()
+	  customerCnova.name = order.customer.name
+	  customerCnova.gender = order.customer.gender
+    customerCnova.document_number = order.customer.document_number
+    customerCnova.type = order.customer.typeDoc
+    customerCnova.email = order.customer.email
+    customerCnova.born_at = order.customer.birth_date
+    customerCnova.billing = billingAddress
+    customerCnova.phones = phonesSandbox
+	  
+	  orderItems = OrderItem.where("order_id=?", order.id)
+    @aux = Aux.new
+    @aux.Logue( items )
+    
+    sellerCnova = CNovaApiLojistaV2::Model::Seller.new()
+    sellerCnova.id = 1
+	  
+	  cnovaOrder = CNovaApiLojistaV2::Model::Order.new();
+	 # cnovaOrder.id = order.id;
+   # cnovaOrder.order_site_id = order.order_site_id;
+    cnovaOrder.site = order.site
+  #  cnovaOrder.payment_type = order.payment_type
+  #  cnovaOrder.purchased_at = order.purcharsed_at
+  # cnovaOrder.approved_at = order.approved_at
+  #  cnovaOrder.updated_at = order.updated_at
+  #  cnovaOrder.status = order.status
+  #  cnovaOrder.total_amount = order.total_amount
+  #  cnovaOrder.total_discount_amount = order.total_discount_amount
+ #   cnovaOrder.billing = order.billingAddress  
+  #  cnovaOrder.freight = order.freight
+    cnovaOrder.items = items
+    cnovaOrder.customer = customerCnova
+ #   cnovaOrder.shipping = order.shippingAddress
+   # cnovaOrder.trackings = order.trackings
+   # cnovaOrder.seller = order.loja
+    
+    begin
+      sendOrderCnova = CNovaApiLojistaV2::Api::OrdersApi.post_order(cnovaOrder)
+    rescue => e
+      puts e.inspect;
+      
+    end
+	end
+	
+	
+	
+	
 end

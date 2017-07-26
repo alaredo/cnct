@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sku seller:</strong>
+  <%= @order_item.sku_seller_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @order_item.name %>
+</p>
+
+<p>
+  <strong>Sale price:</strong>
+  <%= @order_item.sale_price %>
+</p>
+
+<p>
+  <strong>Sent:</strong>
+  <%= @order_item.sent %>
+</p>
+
+<p>
+  <strong>Freight:</strong>
+  <%= @order_item.freight %>
+</p>
+
+<p>
+  <strong>Giftwrap:</strong>
+  <%= @order_item.giftWrap %>
+</p>
+
+<%= link_to 'Edit', edit_order_item_path(@order_item) %> |
+<%= link_to 'Back', order_items_path %>

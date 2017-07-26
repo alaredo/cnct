@@ -2,5 +2,46 @@
 
 <%= render 'form' %>
 
+</br>
+</br>
+</br>
+</br>
+<table>
+  <thead>
+    <tr>
+      <th>Sku seller</th>
+      <th>Name</th>
+      <th>Sale price</th>
+      <th>Sent</th>
+      <th>Freight</th>
+      <th>Giftwrap</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order_items.each do |order_item| %>
+      <tr>
+        <td><%= order_item.sku_seller_id %></td>
+        <td><%= order_item.name %></td>
+        <td><%= order_item.sale_price %></td>
+        <td><%= order_item.sent %></td>
+        <td><%= order_item.freight %></td>
+        <td><%= order_item.giftWrap %></td>
+        <td><%= link_to 'Show', order_item %></td>
+        <td><%= link_to 'Edit', edit_order_item_path(order_item) %></td>
+        <td><%= link_to 'Destroy', order_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</br>
+<%= link_to 'New Order item', new_order_item_path %>
+</br>
+</br>
+</br>
+</br>
+</br>
+
 <%= link_to 'Show', @order %> |
 <%= link_to 'Back', orders_path %>

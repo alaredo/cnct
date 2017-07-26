@@ -1,0 +1,53 @@
+<%= form_for(@tracking) do |f| %>
+  <% if @tracking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tracking.errors.count, "error") %> prohibited this tracking from being saved:</h2>
+
+      <ul>
+      <% @tracking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :controlPoint %><br>
+    <%= f.text_field :controlPoint %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :occurredAt %><br>
+    <%= f.datetime_select :occurredAt %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.text_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :sellerDeliveryId %><br>
+    <%= f.text_field :sellerDeliveryId %>
+  </div>
+  <div class="field">
+    <%= f.label :cte %><br>
+    <%= f.text_field :cte %>
+  </div>
+  <div class="field">
+    <%= f.label :carrier_id %><br>
+    <%= f.text_field :carrier_id %>
+  </div>
+  <div class="field">
+    <%= f.label :invoice_id %><br>
+    <%= f.text_field :invoice_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -40,30 +40,241 @@
   <%= @order.total_discount_amount %>
 </p>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @order.customer %>
-</p>
+<div>
+	<h3>Cliente</h3>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @customer.name %>
+	</p>
+	
+	<p>
+	  <strong>Document number:</strong>
+	  <%= @customer.document_number %>
+	</p>
+	
+	<p>
+	  <strong>Type:</strong>
+	  <%= @customer.typeDoc %>
+	</p>
+	
+	<p>
+	  <strong>Gender:</strong>
+	  <%= @customer.gender %>
+	</p>
+	
+	<p>
+	  <strong>Create at:</strong>
+	  <%= @customer.create_at %>
+	</p>
+	
+	<p>
+	  <strong>Email:</strong>
+	  <%= @customer.email %>
+	</p>
+	
+	<p>
+	  <strong>Birth date:</strong>
+	  <%= @customer.birth_date %>
+	</p>
+</div>
 
-<p>
-  <strong>Seller:</strong>
-  <%= @order.seller %>
-</p>
+<div>
+	<h3>Loja</h3>
+	<p>
+  		<strong>Marketplace:</strong>
+  		<%= @loja.MarketPlace.nome %>
+	</p>
 
-<p>
-  <strong>Billingaddress:</strong>
-  <%= @order.billingAddress %>
-</p>
+	<p>
+	  <strong>Code:</strong>
+	  <%= @loja.code %>
+	</p>
+	
+	<p>
+	  <strong>Name:</strong>
+	  <%= @loja.name %>
+	</p>
+</div>
 
-<p>
-  <strong>Shippingaddress:</strong>
-  <%= @order.shippingAddress %>
-</p>
+<div>
+	<h3>Endereço Cobrança</h3>
+	<p>
+	  <strong>Address:</strong>
+	  <%= @billing_address.address %>
+	</p>
+	
+	<p>
+	  <strong>Number:</strong>
+	  <%= @billing_address.number %>
+	</p>
+	
+	<p>
+	  <strong>Complement:</strong>
+	  <%= @billing_address.complement %>
+	</p>
+	
+	<p>
+	  <strong>Quarter:</strong>
+	  <%= @billing_address.quarter %>
+	</p>
+	
+	<p>
+	  <strong>Reference:</strong>
+	  <%= @billing_address.reference %>
+	</p>
+	
+	<p>
+	  <strong>City:</strong>
+	  <%= @billing_address.city %>
+	</p>
+	
+	<p>
+	  <strong>State:</strong>
+	  <%= @billing_address.state %>
+	</p>
+	
+	<p>
+	  <strong>Country:</strong>
+	  <%= @billing_address.country_id %>
+	</p>
+	
+	<p>
+	  <strong>Zip code:</strong>
+	  <%= @billing_address.zip_code %>
+	</p>
+</div>
 
-<p>
-  <strong>Freight:</strong>
-  <%= @order.freight %>
-</p>
+<div>
+	<h3>Endereço Entrega</h3>
+	<p>
+	  <strong>Address:</strong>
+	  <%= @shipping_address.address %>
+	</p>
+	
+	<p>
+	  <strong>Number:</strong>
+	  <%= @shipping_address.number %>
+	</p>
+	
+	<p>
+	  <strong>Complement:</strong>
+	  <%= @shipping_address.complement %>
+	</p>
+	
+	<p>
+	  <strong>Quarter:</strong>
+	  <%= @shipping_address.quarter %>
+	</p>
+	
+	<p>
+	  <strong>Reference:</strong>
+	  <%= @shipping_address.reference %>
+	</p>
+	
+	<p>
+	  <strong>City:</strong>
+	  <%= @shipping_address.city %>
+	</p>
+	
+	<p>
+	  <strong>State:</strong>
+	  <%= @shipping_address.state %>
+	</p>
+	
+	<p>
+	  <strong>Country:</strong>
+	  <%= @shipping_address.country_id %>
+	</p>
+	
+	<p>
+	  <strong>Zip code:</strong>
+	  <%= @shipping_address.zip_code %>
+	</p>
+	
+	<p>
+	  <strong>Recipient name:</strong>
+	  <%= @shipping_address.recipient_name %>
+	</p>
+
+</div>
+
+<div>
+	<h3>Frete</h3>
+	<p>
+	  <strong>Actual amount:</strong>
+	  <%= @freight.actual_amount %>
+	</p>
+	
+	<p>
+	  <strong>Charged amount:</strong>
+	  <%= @freight.charged_amount %>
+	</p>
+	
+	<p>
+	  <strong>Transit time:</strong>
+	  <%= @freight.transit_time %>
+	</p>
+	
+	<p>
+	  <strong>Cross docking time:</strong>
+	  <%= @freight.cross_docking_time %>
+	</p>
+	
+	<p>
+	  <strong>Additional info:</strong>
+	  <%= @freight.additional_info %>
+	</p>
+	
+	<p>
+	  <strong>Type:</strong>
+	  <%= @freight.typeFreight %>
+	</p>
+	
+	<p>
+	  <strong>Schedule at:</strong>
+	  <%= @freight.schedule_at %>
+	</p>
+	
+	<p>
+	  <strong>Schedule period:</strong>
+	  <%= @freight.schedule_period %>
+	</p>
+
+</div>
+
+<div>
+	<h3>Itens</h3>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Sku seller</th>
+	      <th>Name</th>
+	      <th>Sale price</th>
+	      <th>Sent</th>
+	      <th>Freight</th>
+	      <th>Giftwrap</th>
+	      <th colspan="3"></th>
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	    <% @order_items.each do |order_item| %>
+	      <tr>
+	        <td><%= order_item.sku_seller_id %></td>
+	        <td><%= order_item.name %></td>
+	        <td><%= order_item.sale_price %></td>
+	        <td><%= order_item.sent %></td>
+	        <td><%= order_item.freight %></td>
+	        <td><%= order_item.giftWrap %></td>
+	        <td><%= link_to 'Show', order_item %></td>
+	        <td><%= link_to 'Edit', edit_order_item_path(order_item) %></td>
+	        <td><%= link_to 'Destroy', order_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+</div>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

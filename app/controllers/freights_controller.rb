@@ -42,6 +42,6 @@ class FreightsController < ApplicationController
     end
 
     def freight_params
-      params.require(:freight).permit(:actual_amount, :charged_amount, :transit_time, :cross_docking_time, :additional_info, :type, :schedule_at, :schedule_period)
+      params.require(:freight).permit(:actual_amount, :charged_amount, :transit_time, :cross_docking_time, :additional_info, :typeFreight, :schedule_at, :schedule_period)
     end
 end

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sku_seller_id: MyString
+  name: MyString
+  sale_price: MyString
+  decimal: MyString
+  sent: false
+  freight_id: 
+  giftWrap_id: 
+
+two:
+  sku_seller_id: MyString
+  name: MyString
+  sale_price: MyString
+  decimal: MyString
+  sent: false
+  freight_id: 
+  giftWrap_id: 

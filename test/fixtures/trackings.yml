@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  controlPoint: MyString
+  description: MyString
+  occurredAt: 2017-07-14 21:03:15
+  url: MyString
+  number: MyString
+  sellerDeliveryId: MyString
+  cte: MyString
+  carrier_id: 
+  invoice_id: 
+
+two:
+  controlPoint: MyString
+  description: MyString
+  occurredAt: 2017-07-14 21:03:15
+  url: MyString
+  number: MyString
+  sellerDeliveryId: MyString
+  cte: MyString
+  carrier_id: 
+  invoice_id: 

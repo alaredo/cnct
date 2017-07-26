@@ -23,6 +23,8 @@
         <td><%= link_to 'Show', market_empresa %></td>
         <td><%= link_to 'Edit', edit_market_empresa_path(market_empresa) %></td>
         <td><%= link_to 'Destroy', market_empresa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ 		<td><%= link_to 'Enviar Pedidos', edit_send_order_path(market_empresa) %></td>   
+ 		<td><%= link_to 'Buscar Pedidos', edit_get_order_path(market_empresa) %></td>   
       </tr>
     <% end %>
   </tbody>
